@@ -1,1 +1,24 @@
+def check():
+    f=0
+    x = input()
+    while f==0:
+        try: x = float(x)
+        except :
+            print("Error")
+            x=input()
+        else:
+            f=1
+            return x
+x=check()
+minus=0
+n=3
+lst = ['A 4','B 3','C 2','D 1','F 0']
+x-=4
+ans=lst[4]
+while x>=0  :
+    x-=1.5
+    ans = lst[n]
+    n+=-1
+print(ans)
+    
 
