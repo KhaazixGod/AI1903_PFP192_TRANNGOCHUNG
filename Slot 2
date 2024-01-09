@@ -1,13 +1,11 @@
 def check():
-    f=0
     x = input()
-    while f==0:
+    while True:
         try: x = float(x)
         except :
             print("Error")
             x=input()
         else:
-            f=1
             return x
 x=check()
 n=3
