@@ -14,6 +14,8 @@ def Q_04(a,b,c):
         swap(a,b)
     if b>c:
         swap(b,c)
+    if a>b:
+        swap(a,b)
     if a+b>=c:
         return False
     return True
