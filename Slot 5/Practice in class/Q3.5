@@ -1,0 +1,13 @@
+s = input('Input string= ')
+sum_a=0
+sum_b=0
+sum_c=0
+for i in s:
+    tmp = ord(i)
+    if (tmp>=97 and tmp<=122) or(tmp>=65 and tmp<=90):
+        sum_a+=1
+    elif tmp>=48 and tmp<=57:
+        sum_b+=1
+    else:
+        sum_c+=1
+print('Char =',sum_a,'Digits = ',sum_b,'Symbol = ',sum_c)
