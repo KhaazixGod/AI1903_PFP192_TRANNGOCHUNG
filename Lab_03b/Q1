@@ -1,0 +1,21 @@
+s = input()
+check=input()
+ans=[0]*125
+spl=check.split(' ')
+res=0
+for i in spl:
+    res+=len(i)
+    for j in i:
+        tmp = ord(j)
+        ans[tmp]+=1
+if res!=len(s):
+    print('No')
+    exit(0)
+for i in s:
+    tmp=ord(i)
+    ans[tmp]-=1
+    if ans[tmp]<0:
+        print('No')
+        exit(0)
+print('Yes')
+
