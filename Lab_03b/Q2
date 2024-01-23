@@ -1,0 +1,23 @@
+def po(a,b):
+    res=1
+    for i in range(b):
+        res*=a
+    return res
+n = input()
+ans=0
+dem=len(n)
+dem-=1
+for i in n:
+    tmp = ord(i)
+    if (tmp>=48 and tmp<=57) :
+        res=int(i)
+        ans+=po(16,dem)*res
+    elif (tmp>=65 and tmp<=70):
+        tmp-=54
+        ans+=po(16,dem)*tmp
+    else:
+        print("Error mesasge")
+        exit(0)
+    dem-=1
+print(ans)
+        
