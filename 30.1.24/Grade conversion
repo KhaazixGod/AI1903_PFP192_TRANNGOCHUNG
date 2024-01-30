@@ -7,19 +7,22 @@ def check():
             x=input('Grade PRF191 =')
         else:
             return x
+def show(x):
+    n=3
+    lst = ['A','B','C','D','F']
+    lt=['4.0','3.0','2.0','1.0','0.0']
+    x-=4
+    ans=lst[4]
+    res=lt[4]
+    while x>=0  :
+        x-=1.5
+        ans = lst[n]
+        res = lt[n]
+        n+=-1
+    return ans,res
 x=check()
-n=3
-lst = ['A','B','C','D','F']
-lt=['4.0','3.0','2.0','1.0','0.0']
-x-=4
-ans=lst[4]
-res=lt[4]
-while x>=0  :
-    x-=1.5
-    ans = lst[n]
-    res = lt[n]
-    n+=-1
-print('Grade in Letter:', ans)
-print('Grade in four system:',res)
+okk=show(x)
+print('Grade in Letter:', okk[0])
+print('Grade in four system:',okk[1])
     
 
