@@ -1,9 +1,15 @@
+def Find(l,n):
+    res=0
+    for i in l:
+        res+=i
+    ans = n*(n+1)/2
+    ans-=res
+    return ans
 n = int(input())
 res=0
+lst=[]
 for i in range(1,n):
     tmp = int(input())
-    res+=tmp
-ans = n*(n+1)/2
-ans-=res
-ans=int(ans)
+    lst.append(tmp)
+ans=int(Find(lst,n))
 print(ans)
