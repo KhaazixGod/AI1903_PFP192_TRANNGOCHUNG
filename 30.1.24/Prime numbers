@@ -1,0 +1,16 @@
+check=10000000*[0]
+def sang_nt():
+    for i in range(2,10000000):
+        if(check[i]): continue
+        j=i+i
+        while(j<10000000):
+            check[j]=1
+            j+=i
+#    for i in range(1,100):
+#        print(i,check[i])
+n= int(input())
+sang_nt()
+for i in range(1,n+1):
+    tmp = int(input())
+    if check[tmp]==0:
+        print(tmp)
