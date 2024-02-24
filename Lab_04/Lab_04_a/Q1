@@ -1,0 +1,13 @@
+import os 
+import datetime
+def Q1():
+    f1 = open("sales.txt")
+def Q2():
+    now = datetime.datetime.now().strftime("%Y-%m-%d")
+    now = str(now) + '.txt'
+    f2 = open(now)
+def Q3():
+    file_path = r''
+    os.umask(0)
+    with open(os.open(file_path, os.O_CREAT | os.O_WRONLY, 0o777), 'w') as fh:
+        fh.write('content')
