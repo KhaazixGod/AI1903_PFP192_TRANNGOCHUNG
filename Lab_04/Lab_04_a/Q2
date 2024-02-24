@@ -1,0 +1,33 @@
+def inp():
+    n = input()
+    if len(n)<5:
+        n=n+'.txt'
+    else:
+        check=n[-4:]
+        tail = '.txt'
+        if check != tail:
+            n+=tail
+    return n
+    
+def Q1():
+    n = inp()
+    f = open(n,"w")
+    content=input()
+    f.write(content)
+    f.close()
+def Q2():
+    n = inp()
+    f = open(n,"w")
+    content = input()
+    f.write(content)
+    f.close()
+def Q3():
+    n = inp()
+    while True:
+        content = input()
+        #if content == '0': break
+        f = open(n,"a")
+        content+='\n'
+        f.write(content)
+        f.close()
+    
