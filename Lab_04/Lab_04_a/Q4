@@ -1,0 +1,28 @@
+import os 
+
+def inp():
+    n = input()
+    if len(n)<5:
+        n=n+'.txt'
+    else:
+        check=n[-4:]
+        tail = '.txt'
+        if check != tail:
+            n+=tail
+    return n
+    
+def Q1():
+    n=inp()
+    m ='./'+n
+    new = 'New_'+n
+    check_file = os.path.isfile(m)
+    if check_file == True:
+        os.rename(n,new)
+def Q2():
+    lst = ['sale_1.txt','sale_2.txt']
+    lst_n = ['sales_1.txt','sales_2.txt']
+    for i in range(len(lst)):
+        os.rename(lst[i],lst_n[i])
+def Q3():
+    
+Q2()
