@@ -1,0 +1,19 @@
+def Q1():
+    f = open('abc.txt',"r")
+    s = f.read()
+    dem=0
+    arr = s.split('\n')
+    for i in arr:
+        for j in i:
+            tmp = ord(j)
+            if(tmp <97): dem+=1
+    print('Total words:',dem)   
+def Q2():
+    f = open('abc.txt',"r")
+    s = f.read()
+    dem=0
+    arr = s.split(' ')
+    for i in arr:
+        if i == 'this' or i == 'these':
+            dem+=1
+    print(dem)
