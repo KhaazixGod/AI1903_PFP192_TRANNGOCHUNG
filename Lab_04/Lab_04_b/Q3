@@ -9,7 +9,7 @@ def Q1():
             if(tmp <97): dem+=1
     print('Total words:',dem)   
 def Q2():
-    f = open('abc.txt',"r")
+    f = open('article.txt',"r")
     s = f.read()
     dem=0
     arr = s.split(' ')
