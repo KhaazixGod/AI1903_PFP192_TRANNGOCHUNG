@@ -1,0 +1,23 @@
+def inp():
+    n = input()
+    if len(n)<5:
+        n=n+'.txt'
+    else:
+        check=n[-4:]
+        tail = '.txt'
+        if check != tail:
+            n+=tail
+    return n
+    
+def Q1():
+    n =inp()
+    f = open(n)
+    f.seek(0)
+    f.close()
+def Q2():
+    n= inp()
+    f = open(n)
+    f.seek(0,2)
+    f.close()
+def Q3():
+    
