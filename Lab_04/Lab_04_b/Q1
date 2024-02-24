@@ -1,0 +1,12 @@
+def Q1():
+    f = open('poem.txt',"r")
+    print(f.read())
+def Q2():
+    f = open('story.txt',"r")
+    s = f.read()
+    dem=0
+    arr = s.split('\n')
+    for i in arr:
+        if i[0]!='T':
+            dem+=1
+    print('Number of lines which not start with "T":',dem)    
