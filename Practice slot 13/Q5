@@ -1,0 +1,14 @@
+n = input()
+f = open('output.txt',"a")
+lst = [0]*300
+for i in n:
+    kz = ord(i)
+    lst[kz]+=1
+for i in range(97,123):
+    if lst[i]!=0:
+        tmp = chr(i)
+        tmp = "'"+tmp+"'"
+        kz='The letter '+tmp+' appears '+str(lst[i])+' time(s)'
+        f.write(kz+'\n')
+f.close()
+
