@@ -1,0 +1,18 @@
+def Q1():
+    tuple1 = ('Orange',[10,20,30],[5,15,25],20)
+    print(tuple1[1][1])
+def Q2():
+    tuple1 = (10,20,30,40)
+    a = tuple1[0]
+    b = tuple1[1]
+    b = tuple1[2]
+    d = tuple1[3]
+def Q3():
+    tuple1 = (11,22)
+    tuple2 = (99,88)
+    tmp = tuple1
+    tuple1 = tuple2
+    tuple2 = tmp
+    print("tuple1:",tuple1)
+    print("tuple2:",tuple2)
+
