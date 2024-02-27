@@ -1,0 +1,41 @@
+def Q1():
+    dict1 = {'Ten':10,'Twenty':20,'Thirty':30}
+    dict2 = {'Thirty':30,'Fourty':40,'Fifty':50}
+    for i in dict2:
+        if i not in dict1:
+            dict1.setdefault(i,dict2[i])
+    print(dict1)
+def Q2():
+    sampleDict = {'class':
+                  {'student':
+                   {'name':'Mike',
+                    'marks':
+                    {'physics':70,
+                     'history':80}
+                    }
+                   }
+                  }
+    print(sampleDict['class']['student']['marks']['history'])
+def Q3():
+    dem=0
+    employees = ['Kelly','Emma']
+    defaults = {'designation':'Developer','salary':8000}
+    print(end='{')
+    for i in employees:
+        dem+=1
+        print("'"+i+"': ",end = '{')
+        d_t=0
+        for j in defaults:
+            d_t+=1
+            if type(defaults[j]) == str :
+                tmp = "'"+defaults[j]+"'"
+            else:
+                tmp = defaults[j]
+            print("'"+j+"'",':',tmp,end=' ')
+            if d_t!= len(defaults):
+                print(end=',')
+        print(end='}')
+        if dem!= len(employees):
+            print(end=',')
+    print(end='}')
+
