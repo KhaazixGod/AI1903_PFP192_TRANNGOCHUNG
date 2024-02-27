@@ -1,0 +1,55 @@
+flag = False
+def segment_tree(lst,l,r,val):#recursive
+    if l==r:
+        if lst[l]==val:
+            print(l)
+            flag = True
+            return 
+        else:
+            print ("Not found")
+            return 
+    mid = (l+r)/2
+    mid=int(mid)
+    if lst[mid]>=val:
+        segment_tree(lst,l,mid,val)
+    else:
+        segment_tree(lst,mid+1,r,val)
+def binary(lst,n,val):#iterative
+    l=0
+    r=n-1
+    while l<=r:
+        if l==r:
+            if lst[l]==val:
+                print(l)
+            else:
+                print("Not found")
+            break
+        mid = (l+r)/2
+        mid=int(mid)
+        if lst[mid]>=val:
+            r=mid
+        else:
+            l=mid+1
+def Q1():
+    n = int(input())
+    lst = []
+    check = [False] * 105
+    for i in range(n):
+        tmp  =int(input())
+        lst.append(tmp)
+    ans = []
+    for i in range(n):
+        mx = -1
+        for j in range(n):
+            if mx ==-1 and check[j]==False:
+                mx=j
+            if lst[mx] > lst[j] and check[j]==False:
+                mx=j
+        print(mx)
+        ans.append(lst[mx])
+        check[mx]=True
+    print(ans)
+    key = int(input())
+    segment_tree(ans,0,n-1,key)
+    binary(ans,n,key)
+Q1()
