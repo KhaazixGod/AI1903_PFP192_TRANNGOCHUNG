@@ -1,0 +1,118 @@
+ronu = []
+name = ['']*1000000
+En = [0]*1000000
+Ma = [0]*1000000
+Ps = [0]*1000000
+Cht = [0]*1000000
+Css = [0]*1000000
+def pr_pu(n):
+    print('PUPIL DETAIL')
+    print('Roll number:',n)
+    print('Name:',name[n])
+    print('English:',En[n])
+    print('Math:',Ma[n])
+    print('Physics:',Ps[n])
+    print('Chemistry:',Cht[n])
+    print('Cs:',Css[n])
+def Ad_cr():
+    print('PUPIL DETAIL..')
+    num = int(input('Roll number:'))
+    n = input('Name:')
+    E = float(input('English:'))
+    M = float(input('Math:'))
+    P = float(input('Physics:'))
+    Ch = float(input('Chemistry:'))
+    Cs = float(input('Cs:'))
+    ronu.append(num)
+    name[num]=n
+    En[num]=E
+    Ma[num]=M
+    Ps[num]=P
+    Cht[num]=Ch
+    Css[num]=Cs
+    ne = input('Wants to enter more record (y/n)?:')
+    if ne == 'y':
+        Ad_cr()
+    else:
+        return
+def Ad_dis():
+    print('PUPIL DETAIL..')
+    for i in ronu:
+        print('Roll number:', i)
+        print('Name:',name[i])
+        print('English:',En[i])
+        print('Math:',Ma[i])
+        print('Physics:',Ps[i])
+        print('Chemistry:',Cht[i])
+        print('Cs:',Css[i])
+def Ad_se():
+    n = int(input('Enter the rollno you want to search:'))
+    if n not in ronu:
+        print('No pupil')
+    else:
+        pr_pu(i)
+def pr_mo(s,arr,i,s_n):
+    print(s,arr[i])
+    check=input('Wants to edit(y/n)?')
+    if check == 'y':
+        raw = ('Enter the',s_n)
+        try: raw = int(raw)
+        except:
+            arr[i]=raw
+        else:
+            arr[i]=raw
+    else :
+        return
+
+def Ad_mo():
+    print('MODIFY RECORD')
+    n = int(input('Enter roll number:'))
+    pr_mo('Name',name,n,'name')
+    pr_mo('English',En,n,'english')
+    pr_mo('Math',Ma,n,'math')
+    pr_mo('Physics',Ps,n,'physics')
+    pr_mo('Chemistry',Cht,n,'chemistry')
+    pr_mo('Cs',Css,n,'cs')
+    print('Record updated')
+    print('\n','PUPIL DETAIL')
+    pr_pu(n)
+def Ad_de():
+    print('DELETE RECORD')
+    n = int(input('Enter roll number:'))
+    print('\n','PUPIL DETAIL')
+    pr_pu(n)
+    ronu.remove(n)
+def Admin():
+    while True:
+        print('1. CREATE PUPIL REPORT')
+        print('2. DISPLAY ALL PUPILS RECORDS')
+        print('3. SEARCH PUPIL RECORD')
+        print('4. MODIFY PUPIL RECORD')
+        print('5. DELETE PUPIL RECORD')
+        print('6. BACK TO MAIN MENU')
+        n = input('Enter choice(1-6):')
+        if n == '6':
+            return
+        elif n == '1':
+            Ad_cr()
+        elif n == '2':
+            Ad_dis()
+        elif n =='3':
+            Ad_se()
+        elif n =='4':
+            Ad_mo()
+        elif n =='5':
+            Ad_de()
+        else:
+            return
+while True:
+    print('1 Report')
+    print('2 Admin')
+    print('3 Exit')
+    n = input('Enter choice(1-3):')
+    if n == '3':
+        break
+    elif n == '2':
+        Admin()
+    else:
+        
