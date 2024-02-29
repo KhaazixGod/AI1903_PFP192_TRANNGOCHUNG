@@ -10,7 +10,7 @@ def pr_pu(n):
     print('Roll number:',n)
     print('Name:',name[n])
     print('English:',En[n])
-    print('Math:',Ma[n])
+    print('Maths:',Ma[n])
     print('Physics:',Ps[n])
     print('Chemistry:',Cht[n])
     print('Cs:',Css[n])
@@ -19,7 +19,7 @@ def Ad_cr():
     num = int(input('Roll number:'))
     n = input('Name:')
     E = float(input('English:'))
-    M = float(input('Math:'))
+    M = float(input('Maths:'))
     P = float(input('Physics:'))
     Ch = float(input('Chemistry:'))
     Cs = float(input('Cs:'))
@@ -30,23 +30,24 @@ def Ad_cr():
     Ps[num]=P
     Cht[num]=Ch
     Css[num]=Cs
-    ne = input('Wants to enter more record (y/n)?:')
+    ne = input('\nWants to enter more record (y/n)?:')
     if ne == 'y':
         Ad_cr()
     else:
         return
 def Ad_dis():
-    print('PUPIL DETAIL..')
+    print('\nPUPIL DETAIL..')
     for i in ronu:
         print('Roll number:', i)
         print('Name:',name[i])
         print('English:',En[i])
-        print('Math:',Ma[i])
+        print('Maths:',Ma[i])
         print('Physics:',Ps[i])
         print('Chemistry:',Cht[i])
         print('Cs:',Css[i])
 def Ad_se():
     n = int(input('Enter the rollno you want to search:'))
+    print()
     if n not in ronu:
         print('No pupil')
     else:
@@ -65,11 +66,11 @@ def pr_mo(s,arr,i,s_n):
         return
 
 def Ad_mo():
-    print('MODIFY RECORD')
+    print('\nMODIFY RECORD')
     n = int(input('Enter roll number:'))
     pr_mo('Name',name,n,'name')
     pr_mo('English',En,n,'english')
-    pr_mo('Math',Ma,n,'math')
+    pr_mo('Maths',Ma,n,'maths')
     pr_mo('Physics',Ps,n,'physics')
     pr_mo('Chemistry',Cht,n,'chemistry')
     pr_mo('Cs',Css,n,'cs')
@@ -77,9 +78,9 @@ def Ad_mo():
     print('\n','PUPIL DETAIL')
     pr_pu(n)
 def Ad_de():
-    print('DELETE RECORD')
+    print('\nDELETE RECORD')
     n = int(input('Enter roll number:'))
-    print('\n','PUPIL DETAIL')
+    print()
     pr_pu(n)
     ronu.remove(n)
 def Admin():
@@ -92,6 +93,7 @@ def Admin():
         print('6. BACK TO MAIN MENU')
         n = input('Enter choice(1-6):')
         if n == '6':
+            print()
             return
         elif n == '1':
             Ad_cr()
@@ -105,6 +107,41 @@ def Admin():
             Ad_de()
         else:
             return
+    print()
+def Rp_rs():
+    print('\nRollno	Name	English Maths Physics Chemistry Cs')
+    s = '     '
+    for i in ronu:
+        print(i,end=s)
+        print(name[i],end=s)
+        print(En[i],end=s)
+        print(Ma[i],end=s)
+        print(Ps[i],end=s)
+        print(Cht[i],end=s)
+        print(Css[i])
+def Rp_ca():
+    n = int(input('Enter the rollno ou want to search:'))
+    print()
+    if n in ronu:
+        print()
+        pr_pu(n)
+    else :
+        print('CAN NOT FOUND')
+def Report():
+    while True:
+        print('\nREPORT MENU')
+        print('1. CLASS RESULT')
+        print('2. PUPIL REPORT CARD')
+        print('3. BACK TO MAIN MENU')
+        n = input('Enter choice(1-3):')
+        if n == '3':
+            print()
+            return
+        elif n == '1':
+            Rp_rs()
+        else:
+            Rp_ca()
+    print()
 while True:
     print('1 Report')
     print('2 Admin')
@@ -115,4 +152,4 @@ while True:
     elif n == '2':
         Admin()
     else:
-        
+        Report()
