@@ -17,6 +17,12 @@ def pr_pu(n):
 def Ad_cr():
     print('PUPIL DETAIL..')
     num = int(input('Roll number:'))
+    while True:
+        if num in ronu:
+           print("Numeber exist, please re-input")
+           num = int(input('Roll number:'))
+        else:
+            break
     n = input('Name:')
     E = float(input('English:'))
     M = float(input('Maths:'))
@@ -68,6 +74,12 @@ def pr_mo(s,arr,i,s_n):
 def Ad_mo():
     print('\nMODIFY RECORD')
     n = int(input('Enter roll number:'))
+    while True:
+        if n not in ronu:
+            print("Invalid number, please re-input")
+            n = int(input("Enter roll number:"))
+        else:
+            break
     pr_mo('Name',name,n,'name')
     pr_mo('English',En,n,'english')
     pr_mo('Maths',Ma,n,'maths')
@@ -80,6 +92,12 @@ def Ad_mo():
 def Ad_de():
     print('\nDELETE RECORD')
     n = int(input('Enter roll number:'))
+    while True:
+        if n not in ronu:
+            print("Invalid number,please re-input")
+            n = int(input('Enter roll number:'))
+        else:
+            break
     print()
     pr_pu(n)
     ronu.remove(n)
@@ -120,7 +138,16 @@ def Rp_rs():
         print(Cht[i],end=s)
         print(Css[i])
 def Rp_ca():
+    if len(ronu)==0:
+        print('No pupil has been input')
+        return
     n = int(input('Enter the rollno ou want to search:'))
+    while True:
+        if n not in ronu:
+            print('No pupil has that number')
+            n = int(input('Enter the rollno ou want to search:'))
+        else:
+            break
     print()
     if n in ronu:
         print()
