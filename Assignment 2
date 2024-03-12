@@ -10,6 +10,7 @@ class book:
         self.team = team
         self.year = year
         self.price = price
+    
     def getName(self):
         return self.name
     def getAuthor(self):
@@ -21,55 +22,95 @@ class book:
     def getPrice(self):
         return self.price
     
+    def setName(self,name):
+        self.name = name
+    def setAuthor(self,a):
+        self.author = a
+    def setTeam(self,t):
+        self.team = t
+    def setYear(self,y):
+        self.year = y
+    def setPrice(self,p):
+        self.price = p
 class Main:
     def __init__(self):
         pass
-    lst = []
-    def inp():
+
+    def inp(self):
         fr = open('Store.txt',"r")
         n = int(fr.readline())
+        lst = []
         for i in range(n):
-                
-    def f1(self):
-        n = int(input('Nhap n: '))
-        for i in range(n):
-            n = input('Ten: ')
-            a = input('Tac_gia: ')
-            x = input('Xuat_ban: ')
-            y = int(input('Nam: '))
-            p = int(input('Gia: '))
-            tmp = Book(n,a,x,y,p)
-            lst.append(tmp)
-        fr = open('Store.txt',"r")
-        line = int(fr.readline())
-        c_lst = []
-        for i in range(line):
             n = fr.readline()
             a = fr.readline()
             x = fr.readline()
             y = fr.readline()
             p = fr.readline()
-            tmp = Book(n,a,x,y,p)
-            c_lst.append(tmp)
+            space = fr.readline()
+            tmp = book(n,a,x,y,p)
+            lst.append(tmp)
+        return lst
+    
+    def f3(self):
+        lst = self.inp()
+        n = len(lst)
+        for i in range(n-1):
+            for j in range(n-1):
+                if(lst[i].getYear()<lst[i+1]):
+                    a = book(lst[i].getName(),lst[i].getAuthor(),lst[i].getTeam(),
+    
+    def f2(self):
+        lst = self.inp()
+        print(len(lst))
+        for i in lst:
+            print(i.getName(),end='')
+            print(i.getAuthor(),end='')
+            print(i.getTeam(),end='')
+            print(i.getYear(),end='')
+            print(i.getPrice(),end='')
+            print()
+            
+    def f1(self):
+        n = int(input('Nhap n: '))
+        
+        lst = []
+        for i in range(n):
+            na = input('Ten: ')
+            a = input('Tac_gia: ')
+            x = input('Xuat_ban: ')
+            y = int(input('Nam: '))
+            p = int(input('Gia: '))
+            tmp = book(na,a,x,y,p)
+            lst.append(tmp)
+        fr = open('Store.txt',"r")
+        c_lst = self.inp()
+        line = len(c_lst)
         fr.close()
-        fa = open('Store.txt',"a")
-        firstline = str(line+n) + '\n'
+        fa = open('Store.txt',"w")
+        kz = line + n
+        firstline = str(kz) + '\n'
         fa.write(firstline)
         for i in range(line):
-            fa.write(c_lst[i].getName(),'\n')
-            fa.write(c_lst[i].getAuthor(),'\n')
-            fa.write(c_lst[i].getTeam(),'\n')
-            fa.write(c_lst[i].getYear(),'\n')
-            fa.write(c_lst[i].getPrice(),'\n')
+            fa.write(c_lst[i].getName())
+            fa.write(c_lst[i].getAuthor())
+            fa.write(c_lst[i].getTeam())
+            fa.write(str(c_lst[i].getYear()))
+            fa.write(str(c_lst[i].getPrice()))
             fa.write('\n')
         for i in range(n):
-            fa.write(lst[i].getName(),'\n')
-            fa.write(lst[i].getAuthor(),'\n')
-            fa.write(lst[i].getTeam(),'\n')
-            fa.write(lst[i].getYear(),'\n')
-            fa.write(lst[i].getPrice(),'\n')
+            fa.write(lst[i].getName())
+            fa.write('\n')
+            fa.write(lst[i].getAuthor())
+            fa.write('\n')
+            fa.write(lst[i].getTeam())
+            fa.write('\n')
+            fa.write(str(lst[i].getYear()))
+            fa.write('\n')
+            fa.write(str(lst[i].getPrice()))
+            fa.write('\n')
             fa.write('\n')
         fa.close()
+
     def main(self):
         print('1. Nhap thong tin cua n cuon sach cua FU')
         print('2. In ra man hinh thong tin vua nhap')
@@ -81,7 +122,9 @@ class Main:
         if(inp=='6'):
             exit(0)
         elif inp== '1':
-            pass
+            self.f1()
+        elif inp == '2':
+            self.f2()
 main=Main()
 main.main()
 
