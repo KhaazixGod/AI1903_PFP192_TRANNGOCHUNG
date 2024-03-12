@@ -1,0 +1,87 @@
+class book:
+    name = ''
+    author = ''
+    team = ''
+    year = ''
+    price = 0
+    def __init__(self,name,author,team,year,price):
+        self.name = name
+        self.author = author
+        self.team = team
+        self.year = year
+        self.price = price
+    def getName(self):
+        return self.name
+    def getAuthor(self):
+        return self.author
+    def getTeam(self):
+        return self.team
+    def getYear(self):
+        return self.year
+    def getPrice(self):
+        return self.price
+    
+class Main:
+    def __init__(self):
+        pass
+    lst = []
+    def inp():
+        fr = open('Store.txt',"r")
+        n = int(fr.readline())
+        for i in range(n):
+                
+    def f1(self):
+        n = int(input('Nhap n: '))
+        for i in range(n):
+            n = input('Ten: ')
+            a = input('Tac_gia: ')
+            x = input('Xuat_ban: ')
+            y = int(input('Nam: '))
+            p = int(input('Gia: '))
+            tmp = Book(n,a,x,y,p)
+            lst.append(tmp)
+        fr = open('Store.txt',"r")
+        line = int(fr.readline())
+        c_lst = []
+        for i in range(line):
+            n = fr.readline()
+            a = fr.readline()
+            x = fr.readline()
+            y = fr.readline()
+            p = fr.readline()
+            tmp = Book(n,a,x,y,p)
+            c_lst.append(tmp)
+        fr.close()
+        fa = open('Store.txt',"a")
+        firstline = str(line+n) + '\n'
+        fa.write(firstline)
+        for i in range(line):
+            fa.write(c_lst[i].getName(),'\n')
+            fa.write(c_lst[i].getAuthor(),'\n')
+            fa.write(c_lst[i].getTeam(),'\n')
+            fa.write(c_lst[i].getYear(),'\n')
+            fa.write(c_lst[i].getPrice(),'\n')
+            fa.write('\n')
+        for i in range(n):
+            fa.write(lst[i].getName(),'\n')
+            fa.write(lst[i].getAuthor(),'\n')
+            fa.write(lst[i].getTeam(),'\n')
+            fa.write(lst[i].getYear(),'\n')
+            fa.write(lst[i].getPrice(),'\n')
+            fa.write('\n')
+        fa.close()
+    def main(self):
+        print('1. Nhap thong tin cua n cuon sach cua FU')
+        print('2. In ra man hinh thong tin vua nhap')
+        print('3. Sap xep thong tin giam dan theo nam xuat ban va hien thi')
+        print('4. Tim kiem ten sach')
+        print('5. Tim kiem ten tac gia')
+        print('6 Thoat')
+        inp = input()
+        if(inp=='6'):
+            exit(0)
+        elif inp== '1':
+            pass
+main=Main()
+main.main()
+
