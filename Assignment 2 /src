@@ -1,0 +1,212 @@
+class book:
+    name = ''
+    author = ''
+    team = ''
+    year = ''
+    price = 0
+    def __init__(self,name,author,team,year,price):
+        self.name = name
+        self.author = author
+        self.team = team
+        self.year = year
+        self.price = price
+    
+    def getName(self):
+        return self.name
+    def getAuthor(self):
+        return self.author
+    def getTeam(self):
+        return self.team
+    def getYear(self):
+        return self.year
+    def getPrice(self):
+        return self.price
+    
+    def setName(self,name):
+        self.name = name
+    def setAuthor(self,a):
+        self.author = a
+    def setTeam(self,t):
+        self.team = t
+    def setYear(self,y):
+        self.year = y
+    def setPrice(self,p):
+        self.price = p
+class Main:
+    def __init__(self):
+        pass
+
+    def inp(self):
+        fr = open('FU2024.txt',"r")
+        n = int(fr.readline())
+        lst = []
+        for i in range(n):
+            n = fr.readline()
+            a = fr.readline()
+            x = fr.readline()
+            y = fr.readline()
+            p = fr.readline()
+            space = fr.readline()
+            tmp = book(n[:-1],a[:-1],x[:-1],y,p)
+            lst.append(tmp)
+        return lst
+
+    def f5(self,inputString):
+        lst = self.inp()
+        n = len(lst)
+        f = False
+        for i in range(n):
+            if inputString == lst[i].getAuthor():
+                if f == False:
+                    print(lst[i].getName(),end='')
+                else:
+                    print(',',lst[i].getName(),end='')
+                f = True
+        if f == False :
+            print("Khong tim thay tac gia tren !")
+        print()
+        self.main()
+
+    def f4(self,inputString):
+        flag = False
+        lst = self.inp()
+        inputString = inputString
+        n = len(lst)
+        for i in range(n):
+            if inputString == lst[i].getName():
+                flag = True
+                print(lst[i].getName(),end=', ')
+                print(lst[i].getAuthor(),end=', ')
+                print(lst[i].getTeam(),end='')
+        if flag == False:
+            print("Khong tim thay cuon sach nao!")
+        print()
+        self.main()
+        
+    def f3(self):
+        lst = self.inp()
+        n = len(lst)
+        for i in range(n-1):
+            for j in range(n-1):
+                if(lst[i].getYear()<lst[i+1].getYear()):
+                    a = book(lst[i].getName(),lst[i].getAuthor(),lst[i].getTeam(),lst[i].getYear(),lst[i].getPrice())
+                    lst[i].setName(lst[i+1].getName())
+                    lst[i].setAuthor(lst[i+1].getAuthor())
+                    lst[i].setTeam(lst[i+1].getTeam())
+                    lst[i].setYear(lst[i+1].getYear())
+                    lst[i].setPrice(lst[i+1].getPrice())
+                    lst[i+1].setName(a.getName())
+                    lst[i+1].setAuthor(a.getAuthor())
+                    lst[i+1].setTeam(a.getTeam())
+                    lst[i+1].setYear(a.getYear())
+                    lst[i+1].setPrice(a.getPrice())
+                elif lst[i].getYear()==lst[i+1].getYear() and lst[i].getPrice()<lst[i+1].getPrice():
+                    a = book(lst[i].getName(),lst[i].getAuthor(),lst[i].getTeam(),lst[i].getYear(),lst[i].getPrice())
+                    lst[i].setName(lst[i+1].getName())
+                    lst[i].setAuthor(lst[i+1].getAuthor())
+                    lst[i].setTeam(lst[i+1].getTeam())
+                    lst[i].setYear(lst[i+1].getYear())
+                    lst[i].setPrice(lst[i+1].getPrice())
+                    lst[i+1].setName(a.getName())
+                    lst[i+1].setAuthor(a.getAuthor())
+                    lst[i+1].setTeam(a.getTeam())
+                    lst[i+1].setYear(a.getYear())
+                    lst[i+1].setPrice(a.getPrice())
+        fa = open('FU2024.txt',"w")
+        fa.write(str(n))
+        fa.write('\n')
+        for i in range(n):
+            fa.write(lst[i].getName())
+            fa.write('\n')
+            fa.write(lst[i].getAuthor())
+            fa.write('\n')
+            fa.write(lst[i].getTeam())
+            fa.write('\n')
+            fa.write(str(lst[i].getYear()))
+            fa.write(str(lst[i].getPrice()))
+            fa.write('\n')
+        fa.close()
+        for i in range(n):
+            print('',lst[i].getName(),lst[i].getAuthor(),lst[i].getTeam(),lst[i].getPrice())
+            print()
+        self.main()
+    
+    def f2(self):
+        lst = self.inp()
+        print("Tong so cuon sach:",len(lst))
+        for i in lst:
+            print(i.getName(),end='\n')
+            print(i.getAuthor(),end='\n')
+            print(i.getTeam(),end='\n')
+            print(i.getYear(),end='')
+            print(i.getPrice(),end='')
+            print()
+        self.main()
+            
+    def f1(self):
+        n = int(input('Nhap n: '))
+        
+        lst = []
+        for i in range(n):
+            na = input('Ten: ')
+            a = input('Tac_gia: ')
+            x = input('Xuat_ban: ')
+            y = int(input('Nam: '))
+            p = int(input('Gia: '))
+            tmp = book(na,a,x,y,p)
+            lst.append(tmp)
+        fr = open('FU2024.txt',"r")
+        c_lst = self.inp()
+        line = len(c_lst)
+        fr.close()
+        fa = open('FU2024.txt',"w")
+        kz = line + n
+        firstline = str(kz) + '\n'
+        fa.write(firstline)
+        for i in range(line):
+            fa.write(c_lst[i].getName())
+            fa.write(c_lst[i].getAuthor())
+            fa.write(c_lst[i].getTeam())
+            fa.write(str(c_lst[i].getYear()))
+            fa.write(str(c_lst[i].getPrice()))
+            fa.write('\n')
+        for i in range(n):
+            fa.write(lst[i].getName())
+            fa.write('\n')
+            fa.write(lst[i].getAuthor())
+            fa.write('\n')
+            fa.write(lst[i].getTeam())
+            fa.write('\n')
+            fa.write(str(lst[i].getYear()))
+            fa.write('\n')
+            fa.write(str(lst[i].getPrice()))
+            fa.write('\n')
+            fa.write('\n')
+        fa.close()
+        self.main()
+
+    def main(self):
+        print('1. Nhap thong tin cua n cuon sach cua FU')
+        print('2. In ra man hinh thong tin vua nhap')
+        print('3. Sap xep thong tin giam dan theo nam xuat ban va hien thi')
+        print('4. Tim kiem ten sach')
+        print('5. Tim kiem ten tac gia')
+        print('6 Thoat')
+        inp = input()
+        if(inp=='6'):
+            exit(0)
+        elif inp== '1':
+            self.f1()
+        elif inp == '2':
+            self.f2()
+        elif inp == '3':
+            self.f3()
+        elif inp == '4':
+            inputString = input('Tim kiem(Ten): ')
+            self.f4(inputString)
+        elif inp == '5':
+            inputString = input('Tim kiem(Tac gia): ')
+            self.f5(inputString)
+
+main=Main()
+main.main()
